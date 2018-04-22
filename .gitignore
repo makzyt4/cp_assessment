@@ -39,6 +39,9 @@ obj/
 .vscode/
 .vs/
 Debug/
+Release/
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+*.aps
+*.rc
