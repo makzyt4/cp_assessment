@@ -1,7 +1,78 @@
-﻿  main.cpp
+﻿  Integral.cpp
+c:\users\max\source\repos\cp_assessment\cp_assessment\integral.cpp(12): warning C4244: "inicjowanie": konwersja z "double" do "int", możliwa utrata danych
+c:\users\max\source\repos\cp_assessment\cp_assessment\integral.cpp(12): warning C4244: "inicjowanie": konwersja z "double" do "const int", możliwa utrata danych
+c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\type_traits(16707566): warning C4244: "argument": konwersja z "double" do "int", możliwa utrata danych
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\type_traits(16707566): note: zobacz odwołanie do funkcji szablon; wystąpienie „_Ret std::_Invoker_functor::_Call<std::function<double (double,int)>&,_Ty,_Ty>(_Callable,_Ty &&,_Ty &&) noexcept(false)” jest kompilowane
+          with
+          [
+              _Ret=double,
+              _Ty=double,
+              _Callable=std::function<double (double,int)> &
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\type_traits(15732480): note: zobacz odwołanie do funkcji szablon; wystąpienie „_Ret std::invoke<std::function<double (double,int)>&,_Ty,_Ty>(_Callable,_Ty &&,_Ty &&) noexcept(false)” jest kompilowane
+          with
+          [
+              _Ret=double,
+              _Ty=double,
+              _Callable=std::function<double (double,int)> &
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\functional(16707566): note: zobacz odwołanie do funkcji szablon; wystąpienie „_Rx std::_Invoker_ret<_Rx,false>::_Call<_Callable&,_Ty,_Ty>(_Callable &,_Ty &&,_Ty &&)” jest kompilowane
+          with
+          [
+              _Rx=double,
+              _Callable=std::function<double (double,int)>,
+              _Ty=double
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\functional(16707566): note: zobacz odwołanie do funkcji szablon; wystąpienie „_Rx std::_Invoker_ret<_Rx,false>::_Call<_Callable&,_Ty,_Ty>(_Callable &,_Ty &&,_Ty &&)” jest kompilowane
+          with
+          [
+              _Rx=double,
+              _Callable=std::function<double (double,int)>,
+              _Ty=double
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\functional(15732480): note: podczas kompilowania funkcji składowej „<Nieznany>” klasy klasa <Nieznany>
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\functional(269): note: zobacz odwołanie do klasy klasa szablon; wystąpienie „std::_Func_impl_no_alloc<std::function<double (double,int)>,_Ret,double,double>” jest kompilowane
+          with
+          [
+              _Ret=double
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\functional(520): note: zobacz odwołanie do klasy klasa szablon; wystąpienie „std::_Is_large<_Impl>” jest kompilowane
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\functional(709): note: zobacz odwołanie do funkcji szablon; wystąpienie „void std::_Func_class<_Ret,double,double>::_Reset<std::function<double (double,int)>>(_Fx &&)” jest kompilowane
+          with
+          [
+              _Ret=double,
+              _Fx=std::function<double (double,int)>
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\functional(709): note: zobacz odwołanie do funkcji szablon; wystąpienie „void std::_Func_class<_Ret,double,double>::_Reset<std::function<double (double,int)>>(_Fx &&)” jest kompilowane
+          with
+          [
+              _Ret=double,
+              _Fx=std::function<double (double,int)>
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\functional(771): note: zobacz odwołanie do funkcji szablon; wystąpienie „std::function<double (double,double)>::function<std::function<double (double,int)>,void>(_Fx)” jest kompilowane
+          with
+          [
+              _Fx=std::function<double (double,int)>
+          ]
+  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.13.26128\include\functional(771): note: zobacz odwołanie do funkcji szablon; wystąpienie „std::function<double (double,double)>::function<std::function<double (double,int)>,void>(_Fx)” jest kompilowane
+          with
+          [
+              _Fx=std::function<double (double,int)>
+          ]
+  c:\users\max\source\repos\cp_assessment\cp_assessment\integral.cpp(4): note: zobacz odwołanie do funkcji szablon; wystąpienie „std::function<double (double,double)> &std::function<double (double,double)>::operator =<std::function<double (double,int)>&,void>(_Fx)” jest kompilowane
+          with
+          [
+              _Fx=std::function<double (double,int)> &
+          ]
+  c:\users\max\source\repos\cp_assessment\cp_assessment\integral.cpp(4): note: zobacz odwołanie do funkcji szablon; wystąpienie „std::function<double (double,double)> &std::function<double (double,double)>::operator =<std::function<double (double,int)>&,void>(_Fx)” jest kompilowane
+          with
+          [
+              _Fx=std::function<double (double,int)> &
+          ]
+  main.cpp
   Trwa generowanie kodu
-  1 of 191 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  194 of 195 functions (99.5%) were compiled, the rest were copied from previous compilation.
+    183 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
   cp_assessment.vcxproj -> C:\Users\Max\source\repos\cp_assessment\Release\cp_assessment.exe
