@@ -9,14 +9,36 @@
 #define MATRIX_SIZE 750
 
 void task1() {
+	clock_t measured;
+	
+	std::cout << "==== WSPOLBIEZNIE ====" << std::endl;
+	measured = clock();
+
+//#pragma omp parallel for default(none)
 	for (int k = K_START; k <= K_END; k++) {
 		std::stringstream ss;
 		Integral integ([](double x, int k) -> double {
 			return cos(0.01 * k * x) / (k + x);
 		}, 0, 2 * M_PI, 0.0001);
 		ss << "calka(" << k << ") = " << integ.calcC(k) << std::endl;
-		std::cout << ss.str();
+		//std::cout << ss.str();
 	}
+
+	std::cout << "\nCalka pojedyncza dla k = <1,100>: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
+
+	std::cout << "==== SEKWENCYJNIE ====" << std::endl;
+	measured = clock();
+
+	for (int k = K_START; k <= K_END; k++) {
+		std::stringstream ss;
+		Integral integ([](double x, int k) -> double {
+			return cos(0.01 * k * x) / (k + x);
+		}, 0, 2 * M_PI, 0.0001);
+		ss << "calka(" << k << ") = " << integ.calcN(k) << std::endl;
+		//std::cout << ss.str();
+	}
+
+	std::cout << "\nCalka pojedyncza dla k = <1,100>: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
 }
 
 void task2() {
@@ -66,7 +88,7 @@ void task3() {
 	mat1A.multiplyByC(5);
 	std::cout << "Mnozenie macierzy przez wektor: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
 
-	std::cout << "==== NORMALNIE ====" << std::endl;
+	std::cout << "==== SEKWENCYJNIE ====" << std::endl;
 
 	measured = clock();
 	mat1B.multiplyByN(mat2B);
@@ -78,9 +100,9 @@ void task3() {
 }
 
 int main() {
-	//task1();
+	task1();
 	//task2();
-	task3();
+	//task3();
 
 	std::cout << "\nKoniec. Nacisnij dowolny przycisk by wyjsc z programu..." << std::endl;
 	_getch();
