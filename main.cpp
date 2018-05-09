@@ -11,7 +11,6 @@
 void task1() {
 	clock_t measured;
 	
-	std::cout << "==== WSPOLBIEZNIE ====" << std::endl;
 	measured = clock();
 
 //#pragma omp parallel for default(none)
@@ -24,9 +23,8 @@ void task1() {
 		//std::cout << ss.str();
 	}
 
-	std::cout << "\nCalka pojedyncza dla k = <1,100>: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
+	std::cout << "W :: Calka pojedyncza dla k = <1,100>: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
 
-	std::cout << "==== SEKWENCYJNIE ====" << std::endl;
 	measured = clock();
 
 	for (int k = K_START; k <= K_END; k++) {
@@ -38,31 +36,29 @@ void task1() {
 		//std::cout << ss.str();
 	}
 
-	std::cout << "\nCalka pojedyncza dla k = <1,100>: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
+	std::cout << "S :: Calka pojedyncza dla k = <1,100>: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
 }
 
 void task2() {
 	clock_t measured;
 
-	std::cout << "==== WSPOLBIEZNIE ====" << std::endl;
 	measured = clock();
 
 	DoubleIntegral in([](double x, double y) -> double {
 		return log(1 + pow(M_E, -(pow(x, 2) + pow(y, 2))));
 	}, 0, 2, 0, 2, 0.001);
-	std::cout << in.calcC() << std::endl;
+	in.calcC();
 
-	std::cout << "\nCalka podwojna: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
+	std::cout << "W :: Calka podwojna: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
 
-	std::cout << "==== SEKWENCYJNIE ====" << std::endl;
 	measured = clock();
 
 	DoubleIntegral in2([](double x, double y) -> double {
 		return log(1 + pow(M_E, -(pow(x, 2) + pow(y, 2))));
 	}, 0, 2, 0, 2, 0.001);
-	std::cout << in2.calcN() << std::endl;
+	in2.calcN();
 
-	std::cout << "\nCalka podwojna: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
+	std::cout << "S :: Calka podwojna: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
 }
 
 void task3() {
@@ -95,31 +91,32 @@ void task3() {
 
 	std::cout << " zakonczono.\n";
 
-	std::cout << "==== WSPOLBIEZNIE ====" << std::endl;
-
 	measured = clock();
 	mat1A.multiplyByC(mat2A);
-	std::cout << "Mnozenie macierzy przez macierz: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
+	std::cout << "W :: Mnozenie macierzy przez macierz: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
 
 	measured = clock();
 	mat1A.multiplyByC(5);
-	std::cout << "Mnozenie macierzy przez wektor: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
-
-	std::cout << "==== SEKWENCYJNIE ====" << std::endl;
+	std::cout << "W :: Mnozenie macierzy przez wektor: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
 
 	measured = clock();
 	mat1B.multiplyByN(mat2B);
-	std::cout << "Mnozenie macierzy przez macierz: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
+	std::cout << "S :: Mnozenie macierzy przez macierz: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
 
 	measured = clock();
 	mat1B.multiplyByN(5);
-	std::cout << "Mnozenie macierzy przez wektor: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
+	std::cout << "S :: Mnozenie macierzy przez wektor: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
 }
 
 int main() {
-	//task1();
+	std::cout << "((ZADANIE 1))" << std::endl;
+	task1();
+
+	std::cout << "((ZADANIE 2))" << std::endl;
 	task2();
-	//task3();
+
+	std::cout << "((ZADANIE 3))" << std::endl;
+	task3();
 
 	std::cout << "\nKoniec. Nacisnij dowolny przycisk by wyjsc z programu..." << std::endl;
 	_getch();
