@@ -42,10 +42,27 @@ void task1() {
 }
 
 void task2() {
+	clock_t measured;
+
+	std::cout << "==== WSPOLBIEZNIE ====" << std::endl;
+	measured = clock();
+
 	DoubleIntegral in([](double x, double y) -> double {
 		return log(1 + pow(M_E, -(pow(x, 2) + pow(y, 2))));
 	}, 0, 2, 0, 2, 0.001);
 	std::cout << in.calcC() << std::endl;
+
+	std::cout << "\nCalka podwojna: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
+
+	std::cout << "==== SEKWENCYJNIE ====" << std::endl;
+	measured = clock();
+
+	DoubleIntegral in2([](double x, double y) -> double {
+		return log(1 + pow(M_E, -(pow(x, 2) + pow(y, 2))));
+	}, 0, 2, 0, 2, 0.001);
+	std::cout << in2.calcN() << std::endl;
+
+	std::cout << "\nCalka podwojna: " << (double)(clock() - measured) / CLOCKS_PER_SEC << " s" << std::endl;
 }
 
 void task3() {
@@ -100,8 +117,8 @@ void task3() {
 }
 
 int main() {
-	task1();
-	//task2();
+	//task1();
+	task2();
 	//task3();
 
 	std::cout << "\nKoniec. Nacisnij dowolny przycisk by wyjsc z programu..." << std::endl;
