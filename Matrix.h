@@ -26,10 +26,11 @@ public:
 	T get(const size_t& row, const size_t& column) const;
 	void set(const size_t& row, const size_t& column, const T& value);
 
+	void multiplyByN(const T& value);
+	void multiplyByN(const Matrix<T>& matrix);
 
-	void multiplyBy(const T& value);
-	void multiplyBy(const Matrix<T>& matrix);
-
+	void multiplyByC(const T& value);
+	void multiplyByC(const Matrix<T>& matrix);
 
 	Matrix<T> operator*(const T& value) const;
 	Matrix<T> operator*(const Matrix& matrix) const;
@@ -103,18 +104,30 @@ inline void Matrix<T>::set(const size_t& row, const size_t& column, const T& val
 }
 
 template<class T>
-inline void Matrix<T>::multiplyBy(const T& value) {
+inline void Matrix<T>::multiplyByC(const T& value) {
+	const int iMax = rows();
+
 #pragma omp parallel for default(none)
-	for (size_t i = 0; i < rows(); i++) {
-#pragma omp parallel for default(none)
-		for (size_t j = 0; j < columns(); j++) {
+	for (int i = 0; i < iMax; i++) {
+		const int jMax = columns();
+//#pragma omp parallel for default(none)
+		for (int j = 0; j < jMax; j++) {
 			v.at(i).at(j) *= value;
 		}
 	}
 }
 
 template<class T>
-inline void Matrix<T>::multiplyBy(const Matrix<T>& matrix) {
+inline void Matrix<T>::multiplyByN(const T& value) {
+	for (int i = 0; i < rows(); i++) {
+		for (int j = 0; j < columns(); j++) {
+			v.at(i).at(j) *= value;
+		}
+	}
+}
+
+template<class T>
+inline void Matrix<T>::multiplyByC(const Matrix<T>& matrix) {
 	if (columns() != matrix.rows()) {
 		throw std::invalid_argument("The second dimension of matrix A is not equal to the first dimension of matrix B.");
 	}
@@ -126,7 +139,29 @@ inline void Matrix<T>::multiplyBy(const Matrix<T>& matrix) {
 		for (int j = 0; j < mat.columns(); j++) {
 			T sum = T(0);
 
-#pragma omp parallel for default(none) reduction(+:sum)
+//#pragma omp parallel for default(none) reduction(+:sum)
+			for (int k = 0; k < columns(); k++) {
+				sum += get(i, k) * matrix.get(k, j);
+			}
+
+			mat.set(i, j, sum);
+		}
+	}
+
+	this->v = mat.v;
+}
+
+template<class T>
+inline void Matrix<T>::multiplyByN(const Matrix<T>& matrix) {
+	if (columns() != matrix.rows()) {
+		throw std::invalid_argument("The second dimension of matrix A is not equal to the first dimension of matrix B.");
+	}
+
+	Matrix<T> mat(rows(), matrix.columns());
+	for (int i = 0; i < mat.rows(); i++) {
+		for (int j = 0; j < mat.columns(); j++) {
+			T sum = T(0);
+
 			for (int k = 0; k < columns(); k++) {
 				sum += get(i, k) * matrix.get(k, j);
 			}
@@ -141,13 +176,13 @@ inline void Matrix<T>::multiplyBy(const Matrix<T>& matrix) {
 template<class T>
 inline Matrix<T> Matrix<T>::operator*(const T& value) const {
 	Matrix mat(this->v);
-	mat.multiplyBy(value);
+	mat.multiplyByC(value);
 	return mat;
 }
 
 template<class T>
 inline Matrix<T> Matrix<T>::operator*(const Matrix& matrix) const {
 	Matrix mat(this->v);
-	mat.multiplyBy(matrix);
+	mat.multiplyByC(matrix);
 	return mat;
 }

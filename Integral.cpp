@@ -7,7 +7,19 @@ Integral::Integral(std::function<double(double x, int k)> f, double x1, double x
 	this->e = e;
 }
 
-double Integral::calc(int k) {
+double Integral::calcN(int k) {
+	double result = 0.0;
+	const int N = abs(x2 - x1) / e;
+
+	for (int i = 1; i <= N; i++) {
+		double x = i * e;
+		result += f(x, k) * e;
+	}
+
+	return result;
+}
+
+double Integral::calcC(int k) {
 	double result = 0.0;
 	const int N = abs(x2 - x1) / e;
 

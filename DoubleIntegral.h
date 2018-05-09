@@ -14,5 +14,6 @@ protected:
 public:
 	DoubleIntegral(std::function<double(double x, double y)> f, double x1, double x2, double y1, double y2, double e);
 
-	double calc();
+	double calcN();
+	double calcC();
 };

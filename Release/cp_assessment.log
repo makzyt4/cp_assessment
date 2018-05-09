@@ -1,12 +1,28 @@
-﻿  DoubleIntegral.cpp
-c:\users\max\source\repos\cp_assessment\cp_assessment\doubleintegral.cpp(14): warning C4244: "inicjowanie": konwersja z "double" do "int", możliwa utrata danych
-c:\users\max\source\repos\cp_assessment\cp_assessment\doubleintegral.cpp(14): warning C4244: "inicjowanie": konwersja z "double" do "const int", możliwa utrata danych
-c:\users\max\source\repos\cp_assessment\cp_assessment\doubleintegral.cpp(15): warning C4244: "inicjowanie": konwersja z "double" do "int", możliwa utrata danych
-c:\users\max\source\repos\cp_assessment\cp_assessment\doubleintegral.cpp(15): warning C4244: "inicjowanie": konwersja z "double" do "const int", możliwa utrata danych
-  main.cpp
+﻿  main.cpp
+c1xx : warning C4199: dwufazowe wyszukiwanie nazw nie jest obsługiwane w trybie C++/CLI, C++/CX ani OpenMP, użyj wartości /Zc:twoPhase-
+c:\users\max\source\repos\cp_assessment\cp_assessment\main.cpp(33): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+c:\users\max\source\repos\cp_assessment\cp_assessment\matrix.h(161): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  c:\users\max\source\repos\cp_assessment\cp_assessment\matrix.h(155): note: podczas kompilowania funkcji składowej „<Nieznany>” klasy klasa <Nieznany>
+  c:\users\max\source\repos\cp_assessment\cp_assessment\main.cpp(72): note: zobacz odwołanie do funkcji szablon; wystąpienie „void Matrix<int>::multiplyByN(const Matrix<int> &)” jest kompilowane
+  c:\users\max\source\repos\cp_assessment\cp_assessment\main.cpp(51): note: zobacz odwołanie do klasy klasa szablon; wystąpienie „Matrix<int>” jest kompilowane
+c:\users\max\source\repos\cp_assessment\cp_assessment\matrix.h(162): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\max\source\repos\cp_assessment\cp_assessment\matrix.h(165): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\max\source\repos\cp_assessment\cp_assessment\matrix.h(122): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  c:\users\max\source\repos\cp_assessment\cp_assessment\matrix.h(121): note: podczas kompilowania funkcji składowej „<Nieznany>” klasy klasa <Nieznany>
+  c:\users\max\source\repos\cp_assessment\cp_assessment\main.cpp(76): note: zobacz odwołanie do funkcji szablon; wystąpienie „void Matrix<int>::multiplyByN(const T &)” jest kompilowane
+          with
+          [
+              T=int
+          ]
+c:\users\max\source\repos\cp_assessment\cp_assessment\matrix.h(123): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\max\source\repos\cp_assessment\cp_assessment\matrix.h(137): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  c:\users\max\source\repos\cp_assessment\cp_assessment\matrix.h(130): note: podczas kompilowania funkcji składowej „<Nieznany>” klasy klasa <Nieznany>
+  c:\users\max\source\repos\cp_assessment\cp_assessment\main.cpp(62): note: zobacz odwołanie do funkcji szablon; wystąpienie „void Matrix<int>::multiplyByC(const Matrix<int> &)” jest kompilowane
+c:\users\max\source\repos\cp_assessment\cp_assessment\matrix.h(139): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\max\source\repos\cp_assessment\cp_assessment\matrix.h(143): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
   Trwa generowanie kodu
-  83 of 112 functions (74.1%) were compiled, the rest were copied from previous compilation.
-    49 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+  1 of 282 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
   cp_assessment.vcxproj -> C:\Users\Max\source\repos\cp_assessment\Release\cp_assessment.exe

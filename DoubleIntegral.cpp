@@ -9,7 +9,25 @@ DoubleIntegral::DoubleIntegral(std::function<double(double x, double y)> f, doub
 	this->e = e;
 }
 
-double DoubleIntegral::calc() {
+double DoubleIntegral::calcN() {
+	double result = 0.0;
+	const int N1 = abs(x2 - x1) / e;
+	const int N2 = abs(y2 - y1) / e;
+
+	for (int i = 1; i <= N1; i++) {
+		double x = i * e;
+
+		for (int j = 1; j < N2; j++) {
+			double y = j * e;
+
+			result += f(x, y) * e;
+		}
+	}
+
+	return result * e;
+}
+
+double DoubleIntegral::calcC() {
 	double result = 0.0;
 	const int N1 = abs(x2 - x1) / e;
 	const int N2 = abs(y2 - y1) / e;

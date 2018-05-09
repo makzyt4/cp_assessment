@@ -19,5 +19,6 @@ protected:
 public:
 	Integral(std::function<double(double x, int k)> f, double x1, double x2, double e);
 
-	double calc(int k);
+	double calcN(int k);
+	double calcC(int k);
 };
